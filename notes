@@ -1,0 +1,3 @@
+http://localhost:5001/score?p_length=5.0&p_width=2.0&s_length=3.5&s_width=1.0
+
+http://localhost:5001/apidocs/#/default/post_score
