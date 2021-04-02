@@ -52,6 +52,7 @@ def predict_species():
     prediction = model.predict(np.array([[s_length, s_width, p_length, p_width]]))
     print("Returning Prediction")
     return str(prediction)
+    print("hello")
 
 # run the app
 if __name__ == "__main__":
