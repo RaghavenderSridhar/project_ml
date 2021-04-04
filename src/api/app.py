@@ -5,7 +5,7 @@ from flasgger import Swagger
 import numpy as np
 
 # define the path to the pickled model
-model_path = "../models/irisdatamodel.pkl"
+model_path = "./models/irisdatamodel.pkl"
 
 # unpickle the random forest model
 with open(model_path, "rb") as file:
@@ -42,17 +42,21 @@ def predict_species():
       200:
         description: Index of predicted class 
     """
-    s_length = float(request.args.get("s_length"))
-    s_width = float(request.args.get("s_width"))
-    p_length = float(request.args.get("p_length"))
-    p_width = float(request.args.get("p_width"))
-    
-    print("Predicting!")
+    try:
+      s_length = float(request.args.get("s_length"))
+      s_width = float(request.args.get("s_width"))
+      p_length = float(request.args.get("p_length"))
+      p_width = float(request.args.get("p_width"))
+      
+      print("Predicting!")
 
-    prediction = model.predict(np.array([[s_length, s_width, p_length, p_width]]))
-    print("Returning Prediction")
-    return str(prediction)
-    print("hello")
+      prediction = model.predict(np.array([[s_length, s_width, p_length, p_width]]))
+      print("Returning Prediction")
+      return str(prediction)
+      print("hello")
+    except Exception as e:
+      print("some error occured")
+
 
 # run the app
 if __name__ == "__main__":

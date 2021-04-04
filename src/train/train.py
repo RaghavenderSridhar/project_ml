@@ -14,10 +14,6 @@ from sklearn import datasets
 iris = datasets.load_iris()
 df = pd.DataFrame(iris.data, columns=iris.feature_names)
 
-# # method 2 - read the csv
-# data_path = "data/iris.csv"
-# df = pd.read_csv(data_path, header=0)
-# get train/test splits
 
 test_proportion = 0.3
 X_train, X_test, y_train, y_test = train_test_split(

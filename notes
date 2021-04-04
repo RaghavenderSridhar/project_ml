@@ -1,3 +1,53 @@
 http://localhost:5001/score?p_length=5.0&p_width=2.0&s_length=3.5&s_width=1.0
 
 http://localhost:5001/apidocs/#/default/post_score
+
+######
+
+address parser
+
+sudo apt-get install curl autoconf automake libtool python-dev pkg-config
+
+
+git clone https://github.com/openvenues/libpostal
+cd libpostal
+./bootstrap.sh
+./configure
+sudo make
+sudo make install
+
+###building docker images
+
+sudo docker build -t irisflask .
+
+###checking inside the build docker images
+docker run -it irisflask bash
+
+###checking docker images
+
+docker images
+
+#####docker container details
+
+sudo docker ps -a
+
+#####
+sudo docker-compose up
+
+sudo docker-compose down
+
+####forceful deleting a docker images
+
+sudo docker rmi -f 0eb5641b13d1
+
+### removing built docker images
+docker system prune -a
+
+####
+
+http://localhost:8000/apidocs/
+
+
+####nginx
+
+http://localhost:80
